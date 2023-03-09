@@ -21,6 +21,7 @@ $(function () {
 					'formatted',
 					'latitude',
 					'longitude',
+					'establishment',
 				];
 
 				for (var ii = 0; ii < cmp_names.length; ++ii) {
