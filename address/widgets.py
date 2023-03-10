@@ -31,6 +31,7 @@ class AddressWidget(forms.TextInput):
         ("longitude", "lng"),
         ("place_id", "place_id"),
         ("url", "url"),
+        ("name", "name"),
     ]
 
     class Media:
