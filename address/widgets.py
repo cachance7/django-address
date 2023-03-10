@@ -29,6 +29,9 @@ class AddressWidget(forms.TextInput):
         ("formatted", "formatted_address"),
         ("latitude", "lat"),
         ("longitude", "lng"),
+        ("photos", "photos"),
+        ("place_id", "place_id"),
+        ("url", "url"),
     ]
 
     class Media:
