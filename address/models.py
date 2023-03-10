@@ -34,6 +34,8 @@ def _to_python(value):
     formatted = value.get("formatted", "")
     latitude = value.get("latitude", None)
     longitude = value.get("longitude", None)
+    place_id = value.get("place_id", "")
+    url = value.get("url", "")
 
     # If there is no value (empty raw) then return None.
     if not raw:
@@ -102,6 +104,8 @@ def _to_python(value):
             formatted=formatted,
             latitude=latitude,
             longitude=longitude,
+            place_id=place_id,
+            url=url,
         )
 
         # If "formatted" is empty try to construct it from other values.
@@ -245,6 +249,8 @@ class Address(models.Model):
     formatted = models.CharField(max_length=200, blank=True)
     latitude = models.FloatField(blank=True, null=True)
     longitude = models.FloatField(blank=True, null=True)
+    place_id = models.CharField(max_length=200, blank=True, null=True)
+    url = models.URLField(blank=True, null=True)
 
     class Meta:
         verbose_name_plural = "Addresses"
@@ -280,6 +286,8 @@ class Address(models.Model):
             formatted=self.formatted,
             latitude=self.latitude if self.latitude else "",
             longitude=self.longitude if self.longitude else "",
+            url=self.url if self.url else "",
+            place_id=self.place_id if self.place_id else "",
         )
         if self.locality:
             ad["locality"] = self.locality.name
