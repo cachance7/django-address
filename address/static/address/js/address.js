@@ -5,7 +5,8 @@ $(function () {
 		var fmtd = $('input[name="' + self.attr('name') + '_formatted"]');
 		self.geocomplete({
 			details: cmps,
-			detailsAttribute: 'data-geo'
+			detailsAttribute: 'data-geo',
+			types: ['geocode', 'establishment']
 		}).change(function () {
 			if (self.val() != fmtd.val()) {
 				var cmp_names = [
@@ -21,7 +22,6 @@ $(function () {
 					'formatted',
 					'latitude',
 					'longitude',
-					'establishment',
 				];
 
 				for (var ii = 0; ii < cmp_names.length; ++ii) {
