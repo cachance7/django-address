@@ -36,6 +36,7 @@ def _to_python(value):
     longitude = value.get("longitude", None)
     place_id = value.get("place_id", "")
     url = value.get("url", "")
+    name = value.get("name", "")
 
     # If there is no value (empty raw) then return None.
     if not raw:
@@ -106,6 +107,7 @@ def _to_python(value):
             longitude=longitude,
             place_id=place_id,
             url=url,
+            name=name,
         )
 
         # If "formatted" is empty try to construct it from other values.
@@ -251,6 +253,7 @@ class Address(models.Model):
     longitude = models.FloatField(blank=True, null=True)
     place_id = models.CharField(max_length=200, blank=True, null=True)
     url = models.URLField(blank=True, null=True)
+    name = models.CharField(max_length=200, blank=True, null=True)
 
     class Meta:
         verbose_name_plural = "Addresses"
